@@ -1,0 +1,117 @@
+{
+	"info": {
+		"_postman_id": "754a8ae1-9e07-4623-9f00-5e2254f33909",
+		"name": "Any API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34687077",
+		"_collection_link": "https://test-postman-8435.postman.co/workspace/Postman-Training~b5c02d9c-e3b9-412a-ba06-547748ae20cf/collection/34687077-754a8ae1-9e07-4623-9f00-5e2254f33909?action=share&source=collection_link&creator=34687077"
+	},
+	"item": [
+		{
+			"name": "Historical Forest API",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var template = `\r",
+							"<style type=\"text/css\">\r",
+							"    .tftable {font-size:14px;color:#333333;width:100%;border-width: 1px;border-color: #87ceeb;border-collapse: collapse;}\r",
+							"    .tftable th {font-size:18px;background-color:#87ceeb;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;text-align:left;}\r",
+							"    .tftable tr {background-color:#ffffff;}\r",
+							"    .tftable td {font-size:14px;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;}\r",
+							"    .tftable tr:hover {background-color:#e0ffff;}\r",
+							"</style>\r",
+							"\r",
+							"<table class=\"tftable\" border=\"1\">\r",
+							"    <tr>\r",
+							"        <th>Time</th>\r",
+							"        <th>Temperature (2m)</th>\r",
+							"        <th>Relative Humidity (2m)</th>\r",
+							"        <th>Precipitation</th>\r",
+							"        <th>Rain</th>\r",
+							"        <th>Weather Code</th>\r",
+							"        <th>Evapotranspiration</th>\r",
+							"        <th>Soil Moisture (27 to 81cm)</th>\r",
+							"    </tr>\r",
+							"    \r",
+							"    {{#each response.hourly.time}}\r",
+							"        <tr>\r",
+							"            <td>{{this}}</td>\r",
+							"            <td>{{../temperature_2m.[@index]}}</td>\r",
+							"            <td>{{../relative_humidity_2m.[@index]}}</td>\r",
+							"            <td>{{../precipitation.[@index]}}</td>\r",
+							"            <td>{{../rain.[@index]}}</td>\r",
+							"            <td>{{../weather_code.[@index]}}</td>\r",
+							"            <td>{{../evapotranspiration.[@index]}}</td>\r",
+							"            <td>{{../soil_moisture_27_to_81cm.[@index]}}</td>\r",
+							"        </tr>\r",
+							"    {{/each}}\r",
+							"</table>\r",
+							"`;\r",
+							"\r",
+							"function constructVisualizerPayload() {\r",
+							"    return { response: pm.response.json() }\r",
+							"}\r",
+							"\r",
+							"pm.visualizer.set(template, constructVisualizerPayload());"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "https://historical-forecast-api.open-meteo.com/v1/forecast?latitude=47.1667&longitude=27.6&start_date=2022-04-07&end_date=2022-04-08&hourly=temperature_2m,relative_humidity_2m,precipitation,rain,weather_code,surface_pressure,cloud_cover_low,evapotranspiration,wind_speed_10m,wind_speed_80m,soil_moisture_27_to_81cm&timezone=Europe%2FBerlin",
+					"protocol": "https",
+					"host": [
+						"historical-forecast-api",
+						"open-meteo",
+						"com"
+					],
+					"path": [
+						"v1",
+						"forecast"
+					],
+					"query": [
+						{
+							"key": "latitude",
+							"value": "47.1667"
+						},
+						{
+							"key": "longitude",
+							"value": "27.6"
+						},
+						{
+							"key": "start_date",
+							"value": "2022-04-07"
+						},
+						{
+							"key": "end_date",
+							"value": "2022-04-08"
+						},
+						{
+							"key": "hourly",
+							"value": "temperature_2m,relative_humidity_2m,precipitation,rain,weather_code,surface_pressure,cloud_cover_low,evapotranspiration,wind_speed_10m,wind_speed_80m,soil_moisture_27_to_81cm"
+						},
+						{
+							"key": "timezone",
+							"value": "Europe%2FBerlin"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

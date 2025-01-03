@@ -1,0 +1,183 @@
+{
+	"info": {
+		"_postman_id": "465e34eb-7ded-4b7c-9d2d-d7c4b64c88ee",
+		"name": "Teste NewsAPI",
+		"description": "A collection of tests for News API\n\n[https://newsapi.org](https://newsapi.org)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34687077",
+		"_collection_link": "https://test-postman-8435.postman.co/workspace/Postman-Training~b5c02d9c-e3b9-412a-ba06-547748ae20cf/collection/34687077-465e34eb-7ded-4b7c-9d2d-d7c4b64c88ee?action=share&source=collection_link&creator=34687077"
+	},
+	"item": [
+		{
+			"name": "Simple test with API Key",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://newsapi.org/v2/everything?q=keyword&apiKey=e2e02c3e65574482ae0ecfc8304a05d3",
+					"protocol": "https",
+					"host": [
+						"newsapi",
+						"org"
+					],
+					"path": [
+						"v2",
+						"everything"
+					],
+					"query": [
+						{
+							"key": "q",
+							"value": "keyword"
+						},
+						{
+							"key": "apiKey",
+							"value": "e2e02c3e65574482ae0ecfc8304a05d3"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Top headlines",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://newsapi.org/v2/top-headlines?country=us&apiKey=e2e02c3e65574482ae0ecfc8304a05d3&pageSize=25",
+					"protocol": "https",
+					"host": [
+						"newsapi",
+						"org"
+					],
+					"path": [
+						"v2",
+						"top-headlines"
+					],
+					"query": [
+						{
+							"key": "country",
+							"value": "us"
+						},
+						{
+							"key": "apiKey",
+							"value": "e2e02c3e65574482ae0ecfc8304a05d3"
+						},
+						{
+							"key": "pageSize",
+							"value": "25"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "With Everything endpoint",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://newsapi.org/v2/everything?q=bitcoin&apiKey=e2e02c3e65574482ae0ecfc8304a05d3&pageSize=5",
+					"protocol": "https",
+					"host": [
+						"newsapi",
+						"org"
+					],
+					"path": [
+						"v2",
+						"everything"
+					],
+					"query": [
+						{
+							"key": "q",
+							"value": "bitcoin"
+						},
+						{
+							"key": "apiKey",
+							"value": "e2e02c3e65574482ae0ecfc8304a05d3"
+						},
+						{
+							"key": "pageSize",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "With Everything endpoint with 4 param",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://newsapi.org/v2/everything?q=bitcoin&apiKey=e2e02c3e65574482ae0ecfc8304a05d3&language=en&sortBy=popularity&pageSize=3&searchIn=title",
+					"protocol": "https",
+					"host": [
+						"newsapi",
+						"org"
+					],
+					"path": [
+						"v2",
+						"everything"
+					],
+					"query": [
+						{
+							"key": "q",
+							"value": "bitcoin"
+						},
+						{
+							"key": "apiKey",
+							"value": "e2e02c3e65574482ae0ecfc8304a05d3"
+						},
+						{
+							"key": "language",
+							"value": "en"
+						},
+						{
+							"key": "sortBy",
+							"value": "popularity"
+						},
+						{
+							"key": "pageSize",
+							"value": "3"
+						},
+						{
+							"key": "searchIn",
+							"value": "title"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "error test",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://newsapi.org/v2/everything\n?",
+					"protocol": "https",
+					"host": [
+						"newsapi",
+						"org"
+					],
+					"path": [
+						"v2",
+						"everything\n"
+					],
+					"query": [
+						{
+							"key": null,
+							"value": null,
+							"description": "No API Key"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

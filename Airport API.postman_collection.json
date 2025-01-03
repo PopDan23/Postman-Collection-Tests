@@ -1,0 +1,237 @@
+{
+	"info": {
+		"_postman_id": "85eef21c-fe05-4911-a02d-bb5ea2bbe461",
+		"name": "Airport API",
+		"description": "A suite off API Testing using [https://airportgap.com/docs](https://airportgap.com/docs)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34687077",
+		"_collection_link": "https://test-postman-8435.postman.co/workspace/Postman-Training~b5c02d9c-e3b9-412a-ba06-547748ae20cf/collection/34687077-85eef21c-fe05-4911-a02d-bb5ea2bbe461?action=share&source=collection_link&creator=34687077"
+	},
+	"item": [
+		{
+			"name": "SImple Get - good",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "https://airportgap.com/api/airports/OTP",
+					"protocol": "https",
+					"host": [
+						"airportgap",
+						"com"
+					],
+					"path": [
+						"api",
+						"airports",
+						"OTP"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get with param - good",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "from",
+							"value": "OTP",
+							"type": "text"
+						},
+						{
+							"key": "to",
+							"value": "IAS",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://airportgap.com/api/airports/distance",
+					"protocol": "https",
+					"host": [
+						"airportgap",
+						"com"
+					],
+					"path": [
+						"api",
+						"airports",
+						"distance"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post Favorite Airport with ID",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer token=h8TypPhhKbynQKFQT4wZzu9R"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "airport_id",
+							"value": "OTP",
+							"description": "My usual layover when visiting family",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://airportgap.com/api/favorites",
+					"protocol": "https",
+					"host": [
+						"airportgap",
+						"com"
+					],
+					"path": [
+						"api",
+						"favorites"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Request Copy",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "h8TypPhhKbynQKFQT4wZzu9R",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "note",
+						"value": "Yes this is good",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "note",
+							"value": "My usual layover when visiting family, although it's really far away...",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://airportgap.com/api/favorites/1",
+					"protocol": "https",
+					"host": [
+						"airportgap",
+						"com"
+					],
+					"path": [
+						"api",
+						"favorites",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Favorite Airport with ID",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "h8TypPhhKbynQKFQT4wZzu9R",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "https://airportgap.com/api/favorites/25?id=OTP",
+					"protocol": "https",
+					"host": [
+						"airportgap",
+						"com"
+					],
+					"path": [
+						"api",
+						"favorites",
+						"25"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "OTP"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Returns all favorite - good",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token h8TypPhhKbynQKFQT4wZzu9R"
+					}
+				],
+				"url": {
+					"raw": "https://airportgap.com/api/favorites",
+					"protocol": "https",
+					"host": [
+						"airportgap",
+						"com"
+					],
+					"path": [
+						"api",
+						"favorites"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
